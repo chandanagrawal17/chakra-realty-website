@@ -1,0 +1,117 @@
+:root{color-scheme:light;--paper:#f8f7f2;--ink:#142c23;--muted:#465d51;--green:#174a35;--line:#d7ded4;--surface:#fffefb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.55 system-ui,sans-serif}
+a{color:var(--green);text-underline-offset:.23em}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:3px solid #9c4e19;outline-offset:4px}
+img{display:block;max-width:100%;height:auto}
+h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.06;margin:0 0 .65em}
+h1{font-size:clamp(2.5rem,7vw,5.5rem);letter-spacing:-.05em}
+h2{font-size:clamp(1.5rem,3vw,2.3rem);letter-spacing:-.025em}
+p{margin:0 0 1rem}
+.wrap{width:min(1140px,calc(100% - 2.5rem));margin:auto}
+.preview{text-align:center;background:#e1e9df;padding:.4rem 1rem;font-size:.78rem;font-weight:650}
+.preview span{margin:0 .4em}
+header{border-bottom:1px solid var(--line);background:var(--surface)}
+.bar,nav{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem 1.25rem}
+.bar{justify-content:space-between;padding:.75rem 0}
+nav a{padding:.5rem 0;text-decoration:none;font-size:.94rem;font-weight:600}
+.brand{display:flex;gap:.55rem;align-items:center;text-decoration:none;font:1.45rem Georgia,serif}
+.mark{display:grid;place-items:center;background:var(--green);color:white;border-radius:50%;width:2rem;height:2rem}
+main{padding:2.4rem 0 4rem;min-height:70vh}
+.split,.grid,.listing{display:grid;gap:1rem;align-items:start}
+.split,.listing{grid-template-columns:1fr 1fr}
+.eyebrow{font-weight:750;font-size:.75rem;letter-spacing:.16em;color:var(--green);margin:0 0 .9rem}
+.lede{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:38rem}
+.button{display:inline-block;background:var(--green);color:white;padding:.7rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:650}
+.section{margin-top:2.6rem}
+.intro{padding:.75rem 0 1rem}
+.intro h1{margin-bottom:.25em}
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.guide{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:clamp(1rem,2.3vw,1.65rem);overflow-wrap:anywhere}
+.card p,.muted{color:var(--muted)}
+.card .button+a{display:block;margin-top:1rem}
+.arrow{font-weight:650;display:inline-block;padding:.35rem 0}
+.property-art{width:100%;border-radius:.55rem}
+footer{border-top:1px solid var(--line);padding:.55rem 0;background:var(--surface)}
+.skip{position:absolute;left:1rem;top:-5rem;background:white;padding:.65rem;z-index:1}
+.skip:focus{top:1rem}
+@media(max-width:700px){.grid,.split,.listing{grid-template-columns:1fr}.bar{gap:.3rem 1rem}nav{column-gap:1rem}main{padding-top:1.3rem}}
+
+/* Homepage spacing controls */
+body:has(.home-hero) > :is(.preview, header, footer) { display: none; }
+main:has(.home-hero) { width: 100%; padding: 0; }
+
+.home-hero {
+  --hero-edge: clamp(1.25rem, 4.75vw, 4.5rem);
+  --hero-title-gap: .18em;
+  --hero-description-gap: 1.15rem;
+  --hero-button-gap: 1.75rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 6rem var(--hero-edge) 4rem;
+  background: linear-gradient(#0c172b30, #0c172b55), #121b2d url('/midnight-hero.webp') right center / cover no-repeat;
+  color: #f4f8ff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.home-menu {
+  position: absolute;
+  inset: 1rem var(--hero-edge) auto;
+  justify-content: flex-end;
+  gap: clamp(1rem, 4vw, 3.75rem);
+}
+.home-menu a { color: inherit; font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 400; }
+.home-menu a:hover { text-decoration: underline; }
+.home-copy h1 {
+  margin: 0 0 var(--hero-title-gap);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  letter-spacing: -.045em;
+}
+.home-tagline {
+  margin: 0 0 var(--hero-description-gap);
+  font-size: clamp(1.25rem, 3vw, 2.75rem);
+  line-height: 1.24;
+  text-wrap: balance;
+}
+.home-description { margin: 0 0 var(--hero-button-gap); font-size: clamp(1rem, 2vw, 1.8rem); }
+.home-contact { background: #8ce3f6; color: #102238; border-radius: 0; padding: .8rem 1.35rem; }
+.home-contact:hover { background: #b2edfa; }
+.home-hero a:focus-visible { outline-color: #f4f8ff; }
+
+body:has(.portal) > :is(.preview, header, footer) { display: none; }
+main:has(.portal) { width: 100%; padding: 0; }
+.portal {
+  min-height: 100svh;
+  padding: 1.5rem max(1.25rem, calc((100% - 68rem) / 2)) 3rem;
+  background: var(--portal-surface);
+  color: var(--portal-ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.portal a { color: inherit; }
+.portal h1, .portal h2 { font-family: inherit; }
+.portal h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+.portal-header { display: flex; justify-content: space-between; gap: 1rem; align-items: center; background: transparent; border: 0; }
+.portal-header a { font-size: 1.4rem; font-weight: 650; text-decoration: none; }
+.portal-login { display: grid; place-items: center; min-height: max(28rem, calc(100svh - 7rem)); padding-block: 1.5rem; }
+.portal-card { width: min(100%, 27rem); }
+.portal-card :is(h1, p) { text-align: center; }
+.portal-card, .portal-highlight, .portal-services, .portal-update { background: white; color: var(--portal-ink); padding: clamp(1rem, 4vw, 2rem); border-radius: .85rem; }
+.portal-card label { display: block; margin-top: .9rem; }
+.portal-card input { width: 100%; padding: .75rem; border: 1px solid #9ba5ac; border-radius: .35rem; background: #f5f6f7; font: inherit; }
+.portal-card input::placeholder { color: #566372; }
+.portal a.portal-button { display: block; text-align: center; text-decoration: none; padding: .7rem; margin: 1rem 0; background: var(--portal-accent); color: var(--portal-ink); border-radius: .35rem; font-weight: 650; }
+.portal-label { font-size: .85rem; }
+.portal-dashboard { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.portal-dashboard > :first-child { grid-column: 1 / -1; }
+.portal-highlight { background: var(--portal-accent); }
+.portal-services ul { padding-left: 1.25rem; margin-bottom: 0; }
+.portal-1 { --portal-ink: #102238; --portal-accent: #8ce3f6; --portal-surface: #edf6fb; background: #121b2d; color: #edf6fb; }
+@media (max-width: 650px) {
+  .portal-dashboard { grid-template-columns: minmax(0, 1fr); }
+}
