@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Find a home, move-in information, and resident support from Chakra Realty.',
   robots: { index: false, follow: false },
 };
-const links = [['/', 'Home'], ['/properties', 'Properties'], ['/residents', 'Residents'], ['/services', 'Services'], ['/contact', 'Contact']];
+const links = [['/', 'Home'], ['/properties', 'Properties'], ['/sign-in', 'Resident Portal'], ['/services', 'Services'], ['/contact', 'Contact']];
 
 export default function Layout({ children }) {
   return <html lang="en"><body>

@@ -12,8 +12,8 @@ export const property = {
     ['Packages', 'Check delivery instructions with your property contact before scheduling a shipment.'],
   ],
 };
-export const routes = ['', 'properties', 'properties/' + property.slug, 'contact',
-  'residents', 'residents/' + property.slug, 'services', 'privacy'];
+export const routes = ['', 'rentals', 'properties', 'properties/' + property.slug, 'contact',
+  'residents/' + property.slug, 'services', 'privacy'];
 
 export function inquiry(email, name) {
   if (!email) return null;
